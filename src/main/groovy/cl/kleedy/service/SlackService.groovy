@@ -22,7 +22,6 @@ class SlackService {
     AdvisorRepository advisorRepository
 
     def update(list) {
-        LOG.info('searching updates...')
         list.each { a ->
             if (!existAdvisor(a.packageName)) {
                 advisorRepository.save(a)

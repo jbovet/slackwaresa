@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling
 @SpringBootApplication
 @ComponentScan("cl.kleedy")
 @EnableScheduling
-class SlackwareSecurityAdvisorApplication extends SpringBootServletInitializer{
+class SlackwareSecurityAdvisorApplication extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {

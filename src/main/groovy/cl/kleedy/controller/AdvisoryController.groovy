@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
+
 import static org.springframework.data.domain.Sort.Direction.DESC
+import static org.springframework.http.HttpStatus.NOT_FOUND
 import static org.springframework.http.HttpStatus.OK
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 import static org.springframework.web.bind.annotation.RequestMethod.GET
-import static org.springframework.http.HttpStatus.NOT_FOUND
+
 /**
  * Created by josebovet on 9/19/15.
  */
@@ -25,9 +27,9 @@ class AdvisoryController {
     @Autowired
     AdvisorRepository advisorRepository
 
-    @RequestMapping(value = "/list",  produces = [APPLICATION_JSON_VALUE], method = GET)
+    @RequestMapping(value = "/list", produces = [APPLICATION_JSON_VALUE], method = GET)
     @ResponseBody
-    ResponseEntity<Advisor> index(@RequestParam(value = "limit", defaultValue = "10") Integer limit){
+    ResponseEntity<Advisor> index(@RequestParam(value = "limit", defaultValue = "10") Integer limit) {
         def pageRequest = new PageRequest(0, limit.intValue(), DESC, "date")
         def page = advisorRepository.findAll(pageRequest)
         def list = page.content.collect { it }
