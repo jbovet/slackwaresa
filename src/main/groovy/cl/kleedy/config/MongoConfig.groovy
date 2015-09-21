@@ -21,6 +21,12 @@ class MongoConfig extends AbstractMongoConfiguration {
 
     @Override
     Mongo mongo() throws Exception {
-        return new Mongo()
+        if(System.getenv('OPENSHIFT_MONGODB_DB_HOST')!= null){
+            String openshiftMongoDbHost = System.getenv("OPENSHIFT_MONGODB_DB_HOST");
+            int openshiftMongoDbPort = Integer.parseInt(System.getenv("OPENSHIFT_MONGODB_DB_PORT"));
+            return new Mongo(openshiftMongoDbHost, openshiftMongoDbPort);
+        }else{
+            return new Mongo()
+        }
     }
 }
