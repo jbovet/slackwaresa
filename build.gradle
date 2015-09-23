@@ -34,7 +34,16 @@ jar {
 }
 
 war {
-    baseName = 'slackwaresa'
+    baseName = 'ROOT'
+    destinationDir = file('webapps')
+}
+
+test {
+    bootRun.systemProperties = System.properties
+}
+
+bootRun {
+    bootRun.systemProperties = System.properties
 }
 
 sourceCompatibility = 1.7
@@ -52,6 +61,7 @@ dependencies {
 
     //mongo
     compile("org.springframework.data:spring-data-mongodb")
+
 
 
     //social
