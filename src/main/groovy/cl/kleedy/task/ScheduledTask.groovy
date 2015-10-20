@@ -17,7 +17,7 @@ class ScheduledTask {
     @Autowired
     SlackService slackService
 
-    @Scheduled(initialDelayString = "5000", fixedRateString = "60000")
+    @Scheduled(initialDelayString = "5000", fixedRateString = "300000")
     void checkSecurityAdvisories() {
         LOG.info('run checkSecurityAdvisories task ...searching new updates')
         slackService.checkUpdates()
