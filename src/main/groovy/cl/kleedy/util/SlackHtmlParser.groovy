@@ -14,11 +14,14 @@ class SlackHtmlParser {
     static final qry = 'list.php?l=slackware-security&y='
 
     def static List<Advisor> parse(int year) {
+        def advisors = []
         def x = get(year)
         def parser = new SAXParser()
         def list = new XmlSlurper(parser).parseText(x)
         def lines = list.text().split('\\n')
-        def advisors = []
+        if (lines.first().trim().length() == 0) {
+            return advisors
+        }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd")
         lines.each { line ->
             def ad = line.split(' - ')
@@ -30,7 +33,6 @@ class SlackHtmlParser {
         }
         return advisors
     }
-
 
     def static get(int year) {
         def html = new URL(BASEURL + qry + year).getText()
