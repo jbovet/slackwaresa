@@ -12,4 +12,6 @@ interface AdvisorRepository extends MongoRepository<Advisor, String> {
 
     def List<Advisor> findByYear(int year)
 
+    def Long deleteAdvisorByYear(int year)
+
 }

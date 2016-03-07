@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.context.support.AnnotationConfigContextLoader
-
-
 /**
  * Created by josebovet on 9/15/15.
  */
@@ -39,8 +37,8 @@ class AdvisorTest extends TestCase {
     }
 
 
-    @Test
-    public void finAllTest() {
+    @Ignore
+    public void findAllTest() {
         when:
         def advisor = advisorRepository.findByPackageName('mozilla-thunderbird (SSA:2015-137-01)s')
 
@@ -49,8 +47,8 @@ class AdvisorTest extends TestCase {
 
     }
 
-    @Test
-    public void finAll() {
+    @Ignore
+    public void findAll() {
         when:
         def list = advisorRepository.findAll()
 
@@ -59,5 +57,23 @@ class AdvisorTest extends TestCase {
 
     }
 
+    @Test
+    public void findByYear() {
+        when:
+        def list = advisorRepository.findByYear(2016)
 
+        then:
+        list.size() >= 0
+
+    }
+
+
+    @Ignore
+    public void removeByYear() {
+        when:
+        def result=  advisorRepository.deleteAdvisorByYear(2015)
+
+        then:
+        result >= 0
+    }
 }
