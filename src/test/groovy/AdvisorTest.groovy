@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.context.support.AnnotationConfigContextLoader
+
 /**
  * Created by josebovet on 9/15/15.
  */
@@ -71,7 +72,7 @@ class AdvisorTest extends TestCase {
     @Ignore
     public void removeByYear() {
         when:
-        def result=  advisorRepository.deleteAdvisorByYear(2015)
+        def result = advisorRepository.deleteAdvisorByYear(2015)
 
         then:
         result >= 0
