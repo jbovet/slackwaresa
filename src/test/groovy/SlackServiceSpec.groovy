@@ -4,6 +4,7 @@ import cl.kleedy.service.TwitterService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.support.AnnotationConfigContextLoader
+import spock.lang.Ignore
 import spock.lang.Specification
 
 /**
@@ -26,6 +27,7 @@ class SlackServiceSpec extends Specification {
         updates != null
     }
 
+    @Ignore
     void "get tweets"() {
         when:
         def list = twitterService.getTweets();
@@ -35,6 +37,7 @@ class SlackServiceSpec extends Specification {
     }
 
 
+    @Ignore
     void "remove status from time line"() {
         when:
         def list = twitterService.getTweets();
