@@ -1,7 +1,7 @@
-package cl.kleedy.service
+package cl.tuxy.service
 
-import cl.kleedy.repository.AdvisorRepository
-import cl.kleedy.util.SlackHtmlParser
+import cl.tuxy.repository.AdvisorRepository
+import cl.tuxy.util.SlackHtmlParser
 import org.apache.log4j.Logger
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -35,9 +35,9 @@ class SlackService {
         }
     }
 
-    def boolean checkUpdates() {
+    boolean checkUpdates() {
         LOG.info('checking updates...')
-        int year = Calendar.getInstance().get(Calendar.YEAR);
+        int year = Calendar.getInstance().get(Calendar.YEAR)
         def currents = current(year)
         def latest = getLatest(year)
         if (latest.size() > currents.size()) {

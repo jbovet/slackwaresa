@@ -1,4 +1,4 @@
-package cl.kleedy.exception
+package cl.tuxy.exception
 
 /**
  * Created by josebovet on 9/19/15.

@@ -1,4 +1,4 @@
-package cl.kleedy.config
+package cl.tuxy.config
 
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean

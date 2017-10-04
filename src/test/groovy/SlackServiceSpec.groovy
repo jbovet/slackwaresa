@@ -1,6 +1,7 @@
-import cl.kleedy.SlackwareSecurityAdvisorApplication
-import cl.kleedy.service.SlackService
-import cl.kleedy.service.TwitterService
+import cl.tuxy.SlackwareSecurityAdvisorApplication
+import cl.tuxy.service.SlackService
+import cl.tuxy.service.TwitterService
+import org.junit.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.support.AnnotationConfigContextLoader
@@ -20,6 +21,7 @@ class SlackServiceSpec extends Specification {
     @Autowired
     TwitterService twitterService
 
+    @Test
     void "get security advisors"() {
         when:
         boolean updates = slackService.checkUpdates()
@@ -30,7 +32,7 @@ class SlackServiceSpec extends Specification {
     @Ignore
     void "get tweets"() {
         when:
-        def list = twitterService.getTweets();
+        def list = twitterService.getTweets()
 
         then:
         list.size() >= 0

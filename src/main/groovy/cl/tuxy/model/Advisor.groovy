@@ -1,4 +1,4 @@
-package cl.kleedy.model
+package cl.tuxy.model
 
 import org.springframework.data.annotation.Id
 

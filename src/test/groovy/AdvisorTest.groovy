@@ -1,6 +1,6 @@
-import cl.kleedy.SlackwareSecurityAdvisorApplication
-import cl.kleedy.model.Advisor
-import cl.kleedy.repository.AdvisorRepository
+import cl.tuxy.SlackwareSecurityAdvisorApplication
+import cl.tuxy.model.Advisor
+import cl.tuxy.repository.AdvisorRepository
 import junit.framework.TestCase
 import org.junit.Ignore
 import org.junit.Test
@@ -23,7 +23,7 @@ class AdvisorTest extends TestCase {
 
 
     @Ignore
-    public void insertAdvisor() {
+    void insertAdvisor() {
         given:
         def advisor = new Advisor(
                 packageName: 'mozilla-thunderbird (SSA:2015-137-01)',
@@ -39,7 +39,7 @@ class AdvisorTest extends TestCase {
 
 
     @Ignore
-    public void findAllTest() {
+    void findAllTest() {
         when:
         def advisor = advisorRepository.findByPackageName('mozilla-thunderbird (SSA:2015-137-01)s')
 
@@ -49,7 +49,7 @@ class AdvisorTest extends TestCase {
     }
 
     @Ignore
-    public void findAll() {
+    void findAll() {
         when:
         def list = advisorRepository.findAll()
 
@@ -59,9 +59,9 @@ class AdvisorTest extends TestCase {
     }
 
     @Test
-    public void findByYear() {
+    void findByYear() {
         when:
-        def list = advisorRepository.findByYear(2016)
+        def list = advisorRepository.findByYear(2017)
 
         then:
         list.size() >= 0
@@ -70,9 +70,9 @@ class AdvisorTest extends TestCase {
 
 
     @Ignore
-    public void removeByYear() {
+    void removeByYear() {
         when:
-        def result = advisorRepository.deleteAdvisorByYear(2015)
+        def result = advisorRepository.deleteAdvisorByYear(2014)
 
         then:
         result >= 0

@@ -1,4 +1,4 @@
-package cl.kleedy.service
+package cl.tuxy.service
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.social.twitter.api.Tweet

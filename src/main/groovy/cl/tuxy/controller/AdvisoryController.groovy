@@ -1,8 +1,8 @@
-package cl.kleedy.controller
+package cl.tuxy.controller
 
-import cl.kleedy.exception.AdvisorException
-import cl.kleedy.model.Advisor
-import cl.kleedy.repository.AdvisorRepository
+import cl.tuxy.exception.AdvisorException
+import cl.tuxy.model.Advisor
+import cl.tuxy.repository.AdvisorRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.PageRequest
 import org.springframework.http.ResponseEntity
