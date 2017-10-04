@@ -9,15 +9,15 @@
 
 buildscript {
     ext {
-        springBootVersion = '1.3.6.RELEASE'
+        springBootVersion = '1.5.7.RELEASE'
     }
     repositories {
         mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath "io.spring.gradle:dependency-management-plugin:0.5.6.RELEASE"
-        classpath 'org.springframework:springloaded:1.2.6.RELEASE'
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
+        classpath 'org.springframework:springloaded:1.2.8.RELEASE'
     }
 }
 
@@ -30,7 +30,7 @@ apply plugin: 'war'
 
 jar {
     baseName = 'slackwaresa'
-    version = '0.0.2'
+    version = '0.0.3'
 }
 
 war {
@@ -46,8 +46,8 @@ bootRun {
     bootRun.systemProperties = System.properties
 }
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -72,20 +72,20 @@ dependencies {
 
 
     // We use the latest groovy 2.x version for building this library
-    compile 'org.codehaus.groovy:groovy-all:2.4.7'
+    compile 'org.codehaus.groovy:groovy-all:2.4.12'
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
-    compile 'org.springframework.boot:spring-boot-starter-test:1.3.6.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-test:1.5.7.RELEASE'
     compile 'net.sourceforge.nekohtml:nekohtml:1.9.22'
     compile 'org.apache.logging.log4j:log4j-core:2.5'
 
     //For tomcat
-    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    compile 'org.springframework.boot:spring-boot-starter-tomcat'
 
 
     // We use the awesome Spock testing and specification framework
-    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
-    testCompile 'org.spockframework:spock-spring:1.0-groovy-2.4'
+    testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+    testCompile 'org.spockframework:spock-spring:1.1-groovy-2.4'
     testCompile "cglib:cglib-nodep:3.1"
     testCompile "org.objenesis:objenesis:2.1"
     testCompile 'junit:junit:4.12'

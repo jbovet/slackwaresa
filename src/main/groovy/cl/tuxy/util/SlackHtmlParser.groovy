@@ -1,6 +1,6 @@
-package cl.kleedy.util
+package cl.tuxy.util
 
-import cl.kleedy.model.Advisor
+import cl.tuxy.model.Advisor
 import org.cyberneko.html.parsers.SAXParser
 
 import java.text.SimpleDateFormat
@@ -13,7 +13,7 @@ class SlackHtmlParser {
     static final BASEURL = 'http://www.slackware.com/security/'
     static final qry = 'list.php?l=slackware-security&y='
 
-    def static List<Advisor> parse(int year) {
+    static List<Advisor> parse(int year) {
         def advisors = []
         def x = get(year)
         def parser = new SAXParser()

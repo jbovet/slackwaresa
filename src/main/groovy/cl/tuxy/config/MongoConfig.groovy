@@ -1,6 +1,6 @@
-package cl.kleedy.config
+package cl.tuxy.config
 
-import cl.kleedy.repository.AdvisorRepository
+import cl.tuxy.repository.AdvisorRepository
 import com.mongodb.Mongo
 import com.mongodb.MongoClient
 import com.mongodb.MongoCredential
@@ -23,19 +23,19 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 class MongoConfig extends AbstractMongoConfiguration {
 
 
-    @Value("#{systemEnvironment['OPENSHIFT_MONGODB_DB_HOST']}")
+    @Value("#{systemEnvironment['MONGODB_DB_HOST']}")
     String mongoHost = "localhost"
 
-    @Value("#{systemEnvironment['OPENSHIFT_MONGODB_DB_PORT']}")
+    @Value("#{systemEnvironment['MONGODB_DB_PORT']}")
     String mongoPort = "27017"
 
-    @Value("#{systemEnvironment['OPENSHIFT_APP_NAME']}")
+    @Value("#{systemEnvironment['APP_NAME']}")
     String mongoDbName = "advisors"
 
-    @Value("#{systemEnvironment['OPENSHIFT_MONGODB_DB_USERNAME']}")
+    @Value("#{systemEnvironment['MONGODB_DB_USERNAME']}")
     String mongoUsername = ''
 
-    @Value("#{systemEnvironment['OPENSHIFT_MONGODB_DB_PASSWORD']}")
+    @Value("#{systemEnvironment['MONGODB_DB_PASSWORD']}")
     String mongoPassword = ''
 
     @Override
@@ -47,7 +47,7 @@ class MongoConfig extends AbstractMongoConfiguration {
     Mongo mongo() throws Exception {
         def serverAddress = new ServerAddress(mongoHost, mongoPort.toInteger())
         if (mongoUsername && mongoPassword) {
-            def credential = MongoCredential.createMongoCRCredential(mongoUsername, mongoDbName, mongoPassword.toCharArray())
+            def credential = MongoCredential.createScramSha1Credential(mongoUsername, mongoDbName, mongoPassword.toCharArray())
             new MongoClient(serverAddress, [credential])
         } else {
             new MongoClient(serverAddress)
@@ -56,7 +56,6 @@ class MongoConfig extends AbstractMongoConfiguration {
 
     @Bean
     MongoTemplate mongoTemplate() throws Exception {
-        //remove _class
         def converter = new MappingMongoConverter(mongoDbFactory(), new MongoMappingContext())
         converter.setTypeMapper(new DefaultMongoTypeMapper(null))
         new MongoTemplate(mongoDbFactory(), converter)
