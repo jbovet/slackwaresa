@@ -9,7 +9,7 @@
 
 buildscript {
     ext {
-        springBootVersion = '1.5.7.RELEASE'
+        springBootVersion = '1.5.8.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -24,7 +24,7 @@ buildscript {
 // Apply the groovy plugin to add support for Groovy
 apply plugin: 'groovy'
 apply plugin: 'spring-boot'
-apply plugin: 'war'
+//apply plugin: 'war'
 
 
 
@@ -33,10 +33,10 @@ jar {
     version = '0.0.3'
 }
 
-war {
-    baseName = 'ROOT'
-    destinationDir = file('webapps')
-}
+//war {
+//    baseName = 'ROOT'
+//    destinationDir = file('webapps')
+//}
 
 test {
     bootRun.systemProperties = System.properties

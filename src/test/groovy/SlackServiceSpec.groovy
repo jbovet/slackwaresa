@@ -21,7 +21,7 @@ class SlackServiceSpec extends Specification {
     @Autowired
     TwitterService twitterService
 
-    @Test
+    @Ignore
     void "get security advisors"() {
         when:
         boolean updates = slackService.checkUpdates()
