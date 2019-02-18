@@ -16,13 +16,14 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
         classpath 'org.springframework:springloaded:1.2.8.RELEASE'
     }
 }
 
 // Apply the groovy plugin to add support for Groovy
 apply plugin: 'groovy'
+ext['groovy.version'] = '2.5.0'
 apply plugin: 'org.springframework.boot'
 //apply plugin: 'war'
 
@@ -84,8 +85,8 @@ dependencies {
 
 
     // We use the awesome Spock testing and specification framework
-    testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
-    testCompile 'org.spockframework:spock-spring:1.1-groovy-2.4'
+    testCompile 'org.spockframework:spock-core:1.2-groovy-2.5'
+    testCompile 'org.spockframework:spock-spring:1.2-groovy-2.5'
     testCompile "cglib:cglib-nodep:3.1"
     testCompile "org.objenesis:objenesis:2.1"
     testCompile 'junit:junit:4.12'
