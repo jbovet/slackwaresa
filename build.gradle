@@ -9,7 +9,7 @@
 
 buildscript {
     ext {
-        springBootVersion = '1.5.19.RELEASE'
+        springBootVersion = '1.5.20.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -76,7 +76,7 @@ dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.5.6'
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
-    compile 'org.springframework.boot:spring-boot-starter-test:1.5.19.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-test'
     compile 'net.sourceforge.nekohtml:nekohtml:1.9.22'
     compile 'org.apache.logging.log4j:log4j-core:2.5'
 
