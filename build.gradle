@@ -31,7 +31,7 @@ apply plugin: 'org.springframework.boot'
 
 jar {
     baseName = 'slackwaresa'
-    version = '0.0.7'
+    version = '0.0.8'
 }
 
 //war {
