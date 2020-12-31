@@ -1,3 +1,5 @@
 .idea
 build
 slackware-sa.iml
+.gradle
+out/

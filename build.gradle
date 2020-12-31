@@ -9,7 +9,7 @@
 
 buildscript {
     ext {
-        springBootVersion = '1.5.20.RELEASE'
+        springBootVersion = '1.5.22.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -23,7 +23,7 @@ buildscript {
 
 // Apply the groovy plugin to add support for Groovy
 apply plugin: 'groovy'
-ext['groovy.version'] = '2.5.0'
+ext['groovy.version'] = '2.5.14'
 apply plugin: 'org.springframework.boot'
 //apply plugin: 'war'
 
@@ -31,7 +31,7 @@ apply plugin: 'org.springframework.boot'
 
 jar {
     baseName = 'slackwaresa'
-    version = '0.0.6'
+    version = '0.0.7'
 }
 
 //war {

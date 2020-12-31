@@ -61,7 +61,7 @@ class AdvisorTest extends TestCase {
     @Test
     void findByYear() {
         when:
-        def list = advisorRepository.findByYear(2017)
+        def list = advisorRepository.findByYear(2020)
 
         then:
         list.size() >= 0
