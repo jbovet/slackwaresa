@@ -41,7 +41,7 @@ class SlackHtmlParser {
     }
 
     def static clean(String html) {
-        def f = html.substring(html.indexOf('slackware-security from') + 28, html.indexOf('Slackware&reg'))
+        def f = html.substring(html.indexOf('slackware-security from') + 28, html.indexOf('Slackware&trade'))
         def c = f.replace('<A HREF="viewer.php?', 'viewer.php?')
         return c.replace('">[slackware-security]', ' -')
     }
